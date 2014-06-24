@@ -1,4 +1,6 @@
-# Principles
+> # Principles
+> [Course Notes](https://www.student.cs.uwaterloo.ca/~cs247/current/Lectures/12OO_Principles.pdf)  
+
 1. Open-close Principle
 2. Liskov Substitutability Principle
 3. Favour Composition over Inheritance, broken for Patron, correct for Borrowable
