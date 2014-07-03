@@ -149,10 +149,21 @@ This code assumes our template has a lot, a speak function, an overloaded stream
 
 Otherwise get type errors if type it tries does not have a speak function, or a constructor. Don't overconstrain what you can pass in.
 
+## Design Considerations
+1. How should parameters be passed?
+    * Pass-by value (appropriate for built-in types)
+    * Pass-by reference (appropriate for class types
+2. Consider the initialization of objects with parameterized members
+<hr>
 
-
-
-
+    temsplate<typename T, typename U>
+    struct pair {
+      T first
+      U second
+      pair() : first (T()), second (U()) {}
+      template <typename V, typename W> pair (const pair<V,W> &p) : first(p.first),
+      second(p.second) {}
+    }
 
 
 
