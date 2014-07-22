@@ -115,9 +115,38 @@ ex.
     		*rit = ++i;
 
   		std::cout << "myvector contains:";
-  		or (std::vector<int>::iterator it = myvector.begin(); it != myvector.end(); ++it)
-    std::cout << ' ' << *it;
-	 std::cout << '\n';
+  		for (std::vector<int>::iterator it = myvector.begin(); it != myvector.end(); ++it)
+    		std::cout << ' ' << *it;
+	 			std::cout << '\n';
+
+This prints 5,4,3,2,1
+
+ex.2 
+
+		// istream_iterator example
+		#include <iostream>     // std::cin, std::cout
+		#include <iterator>     // std::istream_iterator
+
+		int main () {
+  		double value1, value2;
+  		std::cout << "Please, insert two values: ";
+
+  		std::istream_iterator<double> eos;              // end-of-stream iterator
+  		std::istream_iterator<double> iit (std::cin);   // stdin iterator
+
+  		if (iit!=eos) value1=*iit;
+
+  		++iit;
+  		if (iit!=eos) value2=*iit;
+
+  		std::cout << value1 << "*" << value2 << "=" << (value1*value2) << '\n';
+		
+  		return 0;
+		}
+
+istream and ostream iterators can only have their value accessed once before they are erased, so put them in a variable.
+
+
 
 
 
