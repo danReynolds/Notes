@@ -237,6 +237,22 @@ Ideally, each of these would be separate objects, the border itself would be sep
 
 Most features are additive, some must change others. 
 
+1. Order of composition might matter
+2. Removing features could be difficult, since this feature could be in the middle of a linked list of features.
+
+## Factory Method
+Problem: Encapsulate the code that creates concrete objects. Factories are polymorphic.
+
+Solution: use the Template Method
+
+1. Abstract class defines a method (template method)
+2. Factory method is a primitive operation of the template method
+3. Subclasses override factory methods to construct specific concrete objects.
+
+
+
+
+
 
 
 
