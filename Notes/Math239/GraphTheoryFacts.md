@@ -56,3 +56,6 @@
 49. Lemma: If M is a matching of G and C is a cover of G then $|M| \leq |C|$.
 50. Lemma: If M is matching and C is a cover and |M| = |C| then M is a maximum matching and C is a minimum cover.
 51. Theorem (Konig's Theorem): If G is bipartite, then the size of the maximum matching is equal to the size of the minimum cover.
+52. Lemma: Let G be a bipartite graph with bipartition A,B where |A| = |B| = n. If G has |E| edges then G has a matching of at least size $\frac{q}{n}$.
+53. Theorem (Hall's): An (A,B)-bigraph G has a matching that saturates A iff for every S subset of A, |S| $\leq$ |N(S)|.
+54. Corollary: An (A,B) bigraph G has a perfect matching iff |A|=|B| and for S is a subset of A, |S| $\leq$ |N(S)|.
