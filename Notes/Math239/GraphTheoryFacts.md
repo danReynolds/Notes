@@ -9,7 +9,7 @@
 6. Theorem: let G be a graph and let v be a vertex in G. If for each w in G there is a path from v to w,  then G is connected. *For any vertex, you can get to any other vertex.*
 7. Theorem: a graph G is **not connected** iff there exists a proper subset of x of V(G) such that the **cut** induced by x is empty.
 8. Proposition: if every very has degree $\geq 2$ then G **has a cycle**.
-9. Theorem (Dirac): if G is a graph on **n > 3 vertices** where every vertex has degree $\geq \frac{n}{2}$, then G has a cycle containing every vertex. G is a **Hamiltonian Graph**.
+9. Theorem (Dirac): if G is a graph on **n $\geq$ 3 vertices** where every vertex has degree $\geq \frac{n}{2}$, then G has a cycle containing every vertex. G is a **Hamiltonian Graph**.
 10. Theorem (Chvtal '72): if G is a graph on n vertices with degree $d_1 \leq d_2 \leq d_3 ... \leq d_n$ then if $d_i \geq i$ or $d_{n-i} \geq n - i$ for all $i \leq \frac{n}{2}$, then G is Hamiltonian.
 11. Theorem (Tutte): Every **4-connected** planar graph is **Hamiltonian**.
 12. Theorem: Every connected graph in which every vertex has even degree is *Eulerian*. An Eulerian graph has an Euler tour, which is a closed walk that contains every edge once.
