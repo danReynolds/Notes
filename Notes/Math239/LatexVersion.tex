@@ -115,8 +115,6 @@ Propositions}\label{graph-theory-facts-and-propositions}
   Theorem: if T is a tree, then \textbar{}E(T)\textbar{} =
   \textbar{}V(T) - 1\textbar{}.
 \item
-  Proposition: Every edge of a tree is a bridge.
-\item
   Proposition: If x,y are vertices of a tree T, then there is a unique
   path of T from x to y.
 \item
@@ -172,8 +170,11 @@ Propositions}\label{graph-theory-facts-and-propositions}
   and \textbar{}E\textbar{} edges. If each face has degree at least d,
   then (d-2)\textbar{}E\textbar{} $\leq$ d(\textbar{}V\textbar{}-2)\$.
 \item
-  Corollary: In any planar embedding of a graph eith at least 2 edges,
+  Corollary: In any planar embedding of a graph with at least 2 faces,
   each face has degree $\geq 3$.
+\item
+  Lemma: In any planar embedding of a graph with $\geq$ 1 cycle, the
+  boundary of every face contains a cycle.
 \item
   Lemma (Test 1): If G = (V,E) is a planar graph and
   \textbar{}E\textbar{} $\geq 2$, then \textbar{}E\textbar{} $\leq$
@@ -216,6 +217,28 @@ Propositions}\label{graph-theory-facts-and-propositions}
 \item
   Theorem (Konig's Theorem): If G is bipartite, then the size of the
   maximum matching is equal to the size of the minimum cover.
+\item
+  Lemma: Let G be a bipartite graph with bipartition A,B where
+  \textbar{}A\textbar{} = \textbar{}B\textbar{} = n. If G has
+  \textbar{}E\textbar{} edges then G has a matching of at least size
+  $\frac{q}{n}$.
+\item
+  Theorem (Hall's): An (A,B)-bigraph G has a matching that saturates A
+  iff for every S subset of A, \textbar{}S\textbar{} $\leq$
+  \textbar{}N(S)\textbar{}.
+\item
+  Corollary: An (A,B) bigraph G has a perfect matching iff
+  \textbar{}A\textbar{}=\textbar{}B\textbar{} and for S is a subset of
+  A, \textbar{}S\textbar{} $\leq$ \textbar{}N(S)\textbar{}.
+\item
+  Proposition: If k $\geq 1$ and G is a k-regular bipartite graph, then
+  G has a perfect matching.
+\item
+  Corollary: If G is a k-regular bipartite graph, then E(G) has a
+  partition into k perfect matches of G.
+\item
+  Corollary: Following from right above, every k-regular bipartite graph
+  is k-edge colourable.
 \end{enumerate}
 
 \end{document}
