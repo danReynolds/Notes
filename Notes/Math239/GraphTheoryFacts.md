@@ -20,7 +20,6 @@
 17. Lemma: Every edge of a tree T is a bridge.
 18. Theorem: A tree with at least 2 vertices has at least two vertices of degree 1.
 19. Theorem: if T is a tree, then |E(T)| = |V(T) - 1|.
-20. Proposition: Every edge of a tree is a bridge.
 21. Proposition: If x,y are vertices of a tree T, then there is a unique path of T from x to y.
 19. Theorem: if T is a tree, then |E(T)| = |V(T) - 1|.
 20. Proposition: Every edge of a tree is a bridge.
@@ -30,32 +29,37 @@
 24. Corollary: Every connected graph on n vertices, n-1 edges is a tree.
 25. Proposition: Every tree is bipartite.
 26. Proposition: If G is a bipartite graph and u,v $\in V(G)$ then if u and v are in the same part of a bipartition, then every walk from u to v has even length. If u,v are in different parts, then every walk from u to v has odd length.
-27. Proposition: If G is a graph with no odd cycles, then G is bipartite. 
+27. Proposition: If G is a graph with no odd cycles, then G is bipartite.
 28. Theorem: Prim's algorithm outputs a min-weight spanning tree.
 29. Proposition: A graph is planar iff it has a spherical embedding.
 30. Theorem: if there is a planar embedding of 2-connected graph G with faces $f_1, f_2, ...$ then $\sum_{i=1} deg(f_i) = 2|E(G)|$
 
 31. Corollary: If the connected graph G has a planar embedding with f faces, then average degree of a face is $\frac{2|E(G)|}{f}$.
-32. Theorem: let G be a connected graph with |V| vertices and |E| edges. If G has a planar embedding with |F| faces, then |V| - |E| + |F| = 2. 
+32. Theorem: let G be a connected graph with |V| vertices and |E| edges. If G has a planar embedding with |F| faces, then |V| - |E| + |F| = 2.
 33. Theorem: There are exactly five non-isomorphic platonic solids.
 34. Lemma: Let G be a planar embedding with |V| vertices, |E| edges and |F| faces. Then {d,k} is one of the five pairs of faces and vertices: {3,3}, {3,4}, {4,3}, {5,3}, {3,5}
-35. Lemma: If G is connected and not a tree then in a planar embedding of G, the boundary of each face contains a cycle. 
+35. Lemma: If G is connected and not a tree then in a planar embedding of G, the boundary of each face contains a cycle.
 36. Lemma: Let G be a planar embedding with |V| vertices and |E| edges. If each face has degree at least d, then (d-2)|E| $\leq$ d(|V|-2)$.
-37. Corollary: In any planar embedding of a graph eith at least 2 edges, each face has degree $\geq 3$.
-38. Lemma (Test 1): If G = (V,E) is a planar graph and |E| $\geq 2$, then |E| $\leq$ 3|V|-6.
-39. Corollary: $K_5$ is non-planar |V| = 5, |E| = 10. 
-40. Corollary: A planar graph has a vertex of degree at most 5.
-41. Lemma (Test 2): If G = (V,E) is a planar graph and every cycle has length $\geq$ g, where g is the girth, the length of the smallest cycle, and |E| $\geq \frac{1}{2}g$, then $|E| \leq \frac{g}{g-2}(|V| - 2)$
-42. Corollary: $K_{3,3}$ is non-planar because it has no triangles, so g = 4 and it fails Test 2. 
-43. Kuratowski's Theorem: A graph is planar iff it has no subdivision of $K_{3,3}$ or $K_5$ as a subgraph.
-44. Theorem: A graph is 2-colourable iff it is bipartite.
-45. Theorem: $K_n$ is n-colourable and not k-colourable for k < n.
-46. Five-Colour-Theorem: Every planar graph is 5-colourable.
-47. Theorem: Every planar graph is 4-colourable.
-48. Lemma: M is not a maximum matching iff there exists an M-augmenting path.
-49. Lemma: If M is a matching of G and C is a cover of G then $|M| \leq |C|$.
-50. Lemma: If M is matching and C is a cover and |M| = |C| then M is a maximum matching and C is a minimum cover.
-51. Theorem (Konig's Theorem): If G is bipartite, then the size of the maximum matching is equal to the size of the minimum cover.
-52. Lemma: Let G be a bipartite graph with bipartition A,B where |A| = |B| = n. If G has |E| edges then G has a matching of at least size $\frac{q}{n}$.
-53. Theorem (Hall's): An (A,B)-bigraph G has a matching that saturates A iff for every S subset of A, |S| $\leq$ |N(S)|.
-54. Corollary: An (A,B) bigraph G has a perfect matching iff |A|=|B| and for S is a subset of A, |S| $\leq$ |N(S)|.
+37. Corollary: In any planar embedding of a graph with at least 2 faces, each face has degree $\geq 3$.
+38. Lemma: In any planar embedding of a graph with $\geq$ 1 cycle, the boundary of every face contains a cycle.
+39. Lemma (Test 1): If G = (V,E) is a planar graph and |E| $\geq 2$, then |E| $\leq$ 3|V|-6.
+40. Corollary: $K_5$ is non-planar |V| = 5, |E| = 10.
+41. Corollary: A planar graph has a vertex of degree at most 5.
+42. Lemma (Test 2): If G = (V,E) is a planar graph and every cycle has length $\geq$ g, where g is the girth, the length of the smallest cycle, and |E| $\geq \frac{1}{2}g$, then $|E| \leq \frac{g}{g-2}(|V| - 2)$
+43. Corollary: $K_{3,3}$ is non-planar because it has no triangles, so g = 4 and it fails Test 2.
+44. Kuratowski's Theorem: A graph is planar iff it has no subdivision of $K_{3,3}$ or $K_5$ as a subgraph.
+45. Theorem: A graph is 2-colourable iff it is bipartite.
+46. Theorem: $K_n$ is n-colourable and not k-colourable for k < n.
+47. Five-Colour-Theorem: Every planar graph is 5-colourable.
+48. Theorem: Every planar graph is 4-colourable.
+49. Lemma: M is not a maximum matching iff there exists an M-augmenting path.
+50. Lemma: If M is a matching of G and C is a cover of G then $|M| \leq |C|$.
+51. Lemma: If M is matching and C is a cover and |M| = |C| then M is a maximum matching and C is a minimum cover.
+52. Theorem (Konig's Theorem): If G is bipartite, then the size of the maximum matching is equal to the size of the minimum cover.
+53. Lemma: Let G be a bipartite graph with bipartition A,B where |A| = |B| = n. If G has |E| edges then G has a matching of at least size $\frac{q}{n}$.
+54. Theorem (Hall's): An (A,B)-bigraph G has a matching that saturates A iff for every S subset of A, |S| $\leq$ |N(S)|.
+55. Corollary: An (A,B) bigraph G has a perfect matching iff |A|=|B| and for S is a subset of A, |S| $\leq$ |N(S)|.
+56. Proposition: If k $\geq 1$ and G is a k-regular bipartite graph, then G has a perfect matching.
+57. Corollary: If G is a k-regular bipartite graph, then E(G) has a partition into k perfect matches of G.
+58. Corollary: Following from right above, every k-regular bipartite graph is k-edge colourable.
+
