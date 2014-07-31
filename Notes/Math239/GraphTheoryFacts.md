@@ -40,7 +40,7 @@
 34. Lemma: Let G be a planar embedding with |V| vertices, |E| edges and |F| faces. Then {d,k} is one of the five pairs of faces and vertices: {3,3}, {3,4}, {4,3}, {5,3}, {3,5}
 35. Lemma: If G is connected and not a tree then in a planar embedding of G, the boundary of each face contains a cycle.
 36. Lemma: Let G be a planar embedding with |V| vertices and |E| edges. If each face has degree at least d, then (d-2)|E| $\leq$ d(|V|-2)$.
-37. Corollary: In any planar embedding of a graph with at least 2 faces, each face has degree $\geq 3$.
+37. Corollary: In any planar embedding of a graph with at least 2 edges, each face has degree $\geq 3$.
 38. Lemma: In any planar embedding of a graph with $\geq$ 1 cycle, the boundary of every face contains a cycle.
 39. Lemma (Test 1): If G = (V,E) is a planar graph and |E| $\geq 2$, then |E| $\leq$ 3|V|-6.
 40. Corollary: $K_5$ is non-planar |V| = 5, |E| = 10.
