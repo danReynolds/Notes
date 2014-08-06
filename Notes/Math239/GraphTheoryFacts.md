@@ -78,4 +78,3 @@
 56. Proposition: If k $\geq 1$ and G is a **k-regular, bipartite** graph, then G has a **perfect matching**.
 57. Corollary: If G is a **k-regular, bipartite** graph, then E(G) has a partition into **k perfect matches** of G.
 58. Corollary: Following from right above, **every k-regular, bipartite** graph is **k-edge colourable**.
-
