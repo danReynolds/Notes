@@ -26,7 +26,7 @@ std::string Navy::report_ = "The seas remain ever our companion.\n";
 
 class AbstractForcesFactory {
 public:
-  virtual void report();
+  void report();
   virtual Force* create() = 0;
 };
 
@@ -69,6 +69,6 @@ int main() {
   
   delete groundUnits;
   delete seaBrigade;
-  
+
   return 0;
 }

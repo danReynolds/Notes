@@ -22,6 +22,7 @@ Singleton* Singleton::Instance(int i) {
 
 std::ostream& operator<<(std::ostream& os, const Singleton& instance) {
   std::cout << instance.calc_;
+  return os;
 }
 
 int main() {
