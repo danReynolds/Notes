@@ -13,7 +13,7 @@ public:
 
 class BookVector {
 public:
-  Iterator* createIterator();
+  BookVectorIterator* createIterator();
   void addPage(int);
   int getPage(int);
   int size();
@@ -34,10 +34,28 @@ public:
   void first();
   int next();
   bool hasNext();
+  BookVectorIterator& operator++(); //give our iterator increment abilities
+  BookVectorIterator operator++(int); //give our iterator increment abilities
+  int operator*();
 private:
   int cursor_;
   BookVector* bookvec_;
 };
+
+int BookVectorIterator::operator*() {
+  return bookvec_->getPage(cursor_);
+}
+
+BookVectorIterator BookVectorIterator::operator++(int x) {
+  BookVectorIterator temp = BookVectorIterator(bookvec_);
+  cursor_++;
+  return temp;
+}
+
+BookVectorIterator& BookVectorIterator::operator++() {
+  cursor_++;
+  return *this;
+}
 
 BookVectorIterator::BookVectorIterator(BookVector* vec) {
   bookvec_ = vec;
@@ -60,7 +78,7 @@ int BookVector::size() {
   return pages_.size();
 }
 
-Iterator* BookVector::createIterator() {
+BookVectorIterator* BookVector::createIterator() {
   return new BookVectorIterator(this);
 }
 
@@ -89,6 +107,11 @@ int main() {
   while (iterator->hasNext()) {
     std::cout << iterator->next() << std::endl;
   }
+
+  BookVectorIterator b = *(a->createIterator());
+  std::cout << *(b++);
+  std::cout << *b;
+  std::cout << *(++b);
 
   return 0;
 }

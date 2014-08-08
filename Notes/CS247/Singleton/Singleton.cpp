@@ -2,9 +2,9 @@
 
 class Singleton {
 public:
-  static Singleton* Instance(int i);
+  static Singleton* Instance();
 protected:
-  Singleton(int i) { calc_ = i; }
+  Singleton() { calc_ = 0; }
 private:
   friend std::ostream& operator<<(std::ostream&, const Singleton&);
   static Singleton* instance_;
@@ -13,9 +13,9 @@ private:
 
 Singleton* Singleton::instance_ = 0;
 
-Singleton* Singleton::Instance(int i) {
+Singleton* Singleton::Instance() {
   if (instance_ == 0) {
-    instance_ = new Singleton(i);
+    instance_ = new Singleton();
   }
   return instance_;
 }
@@ -26,6 +26,6 @@ std::ostream& operator<<(std::ostream& os, const Singleton& instance) {
 }
 
 int main() {
-  std::cout << *Singleton::Instance(12);
+  std::cout << *Singleton::Instance();
   return 0;
 }
