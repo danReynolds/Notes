@@ -46,10 +46,10 @@ int BookVectorIterator::operator*() {
   return bookvec_->getPage(cursor_);
 }
 
-BookVectorIterator BookVectorIterator::operator++(int x) {
+BookVectorIterator BookVectorIterator::operator++(int x) { //one with param is post-increment
   BookVectorIterator temp = BookVectorIterator(bookvec_);
   cursor_++;
-  return temp;
+  return temp; //return a new temp because we need to make the original's cursor incre
 }
 
 BookVectorIterator& BookVectorIterator::operator++() {
@@ -92,6 +92,7 @@ int BookVector::getPage(int x) {
 
 
 int main() {
+  
   BookVector* a = new BookVector();
   a->addPage(1);
   a->addPage(2);
@@ -114,4 +115,5 @@ int main() {
   std::cout << *(++b);
 
   return 0;
+
 }

@@ -21,8 +21,8 @@ public:
 };
 
 int main() {
-  f< std::binder1st<std::equal_to<int> > > a(std::bind1st(std::equal_to<int>(),10));
-  std::cout << a(4, 10) << std::endl;
+  f< std::binder1st<std::equal_to<double> > > a(std::bind1st(std::equal_to<double>(),4.0));
+  std::cout << a(4, 4.0) << std::endl;
 
   bool test = false;
   // f< std::logical_not<bool> > b(std::logical_not<bool>());
