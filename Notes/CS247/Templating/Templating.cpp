@@ -80,6 +80,9 @@ template <typename T>
 class Stack {
 public:
   void push(const T&);
+  template <typename U>
+  friend Stack<U> foo(Stack<U>);
+  friend Stack<T> fooRestricted(Stack<T>);
   T items_ [20];
   int top_;
 };
@@ -88,6 +91,16 @@ template<typename T>
 void Stack<T>::push(const T& elem) {
   top_ = top_ + 1;
   items_[top_] = elem;
+}
+
+template<typename U>
+Stack<U> foo(Stack<U> blah) {
+  return blah;
+}
+
+template<typename U>
+Stack<U> fooRestricted(Stack<U> blah) {
+  return blah;
 }
 
 ////////////// main
@@ -135,6 +148,7 @@ int main() {
   Stack<double> st2;
   int test = 0;
   st2.push(test);
+  foo(st2);
 
 
   return 0;
