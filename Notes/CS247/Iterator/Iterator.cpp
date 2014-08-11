@@ -49,7 +49,7 @@ int BookVectorIterator::operator*() {
 BookVectorIterator BookVectorIterator::operator++(int x) { //one with param is post-increment
   BookVectorIterator temp = BookVectorIterator(bookvec_);
   cursor_++;
-  return temp; //return a new temp because we need to make the original's cursor incre
+  return temp; //return a new temp because we need to make the original's cursor increment
 }
 
 BookVectorIterator& BookVectorIterator::operator++() {

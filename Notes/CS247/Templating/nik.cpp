@@ -56,6 +56,7 @@ int main(){
   // mem_fun
   std::ostream_iterator < Integer > os( std::cout , ", " );
   std::for_each ( ints.begin(), ints.end(), std::mem_fun_ref ( & Integer::increment ) ); //i like this one
+  //not1
   std::remove_copy_if ( ints.begin(), ints.end(), os, std::not1(std::ptr_fun(checkValid<Integer>)));
   std::cout << std::endl ;
 return 0;

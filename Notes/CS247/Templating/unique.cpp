@@ -19,22 +19,22 @@ template<typename T>
 T uniqueInPlace(T cont) {
   typename T::iterator iter = cont.begin();
   while(iter != cont.end()) {
-    T occurrence = std::find_end(iter, cont.end(), iter, iter);
+    typename T::iterator occurrence = std::find_end(iter, cont.end(), iter, iter);
     if (occurrence != iter)
-      cont.erase(occurrence);
+      std::cout << *occurrence;
     ++iter;
   }
   return cont;
 }
 
 int main() {
-  std::vector<int> ints;
+  std::list<int> ints;
   ints.push_back(1);
   ints.push_back(10);
   ints.push_back(100);
   ints.insert(ints.end(), 10, 50);
 
-  std::vector<int> ints2 = unique<std::vector<int> >(ints.begin(), ints.end());
+  std::list<int> ints2 = uniqueInPlace<std::list<int> >(ints);
 
   std::ostream_iterator<int> a(std::cout, "\n");
   std::copy(ints2.begin(), ints2.end(), a);

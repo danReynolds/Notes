@@ -146,7 +146,7 @@ int main() {
   //just cant do compare(1,s) if there isnt a template that takes 2 different types
 
   compare(1,45.0); //now that there is a 2 type template for compare, will work
-  compare<int>(1,45.0); // can tell it to have the first an int, second whatever, just type converts
+  compare<int>(1,45.0); // can tell it to have the first an int, second whatever, just type converts the comparison
 
   float f = sum<float>(2.0,3); //REQUIRES a return type
   float m = sum<double,float>(2.0,3);
