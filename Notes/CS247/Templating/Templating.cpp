@@ -86,8 +86,11 @@ public:
   friend Stack<U> foo(Stack<U>);
   friend Stack<T> fooRestricted(Stack<T>);
 
-  template <typename U>
-  friend ostream& operator<<( std::ostream&, const Stack<U>& );
+  friend ostream& operator<< ( std::ostream& os , const Stack<T>& stack) {
+    cout << stack.top();
+    return os;
+  }
+
   T items_ [20];
   int top_;
 };
@@ -100,11 +103,6 @@ T Stack<T>::top() const {
   return items_[top_];
 }
 
-template <typename T>
-ostream& operator<<(ostream& os, const Stack<T>& stack) {
-  os << endl << stack.top() << endl;
-  return os;
-}
 
 template<typename T>
 void Stack<T>::push(const T& elem) {
