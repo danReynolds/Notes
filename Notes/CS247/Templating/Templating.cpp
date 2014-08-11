@@ -80,12 +80,31 @@ template <typename T>
 class Stack {
 public:
   void push(const T&);
+  T top() const;
+  Stack();
   template <typename U>
   friend Stack<U> foo(Stack<U>);
   friend Stack<T> fooRestricted(Stack<T>);
+
+  template <typename U>
+  friend ostream& operator<<( std::ostream&, const Stack<U>& );
   T items_ [20];
   int top_;
 };
+
+template <typename T>
+Stack<T>::Stack() : top_(0) {}
+
+template <typename T>
+T Stack<T>::top() const {
+  return items_[top_];
+}
+
+template <typename T>
+ostream& operator<<(ostream& os, const Stack<T>& stack) {
+  os << endl << stack.top() << endl;
+  return os;
+}
 
 template<typename T>
 void Stack<T>::push(const T& elem) {
@@ -146,9 +165,10 @@ int main() {
   // Class Templates
   Stack<int> st1;
   Stack<double> st2;
-  int test = 0;
+  int test = 40;
   st2.push(test);
   foo(st2);
+  cout << st2;
 
 
   return 0;
