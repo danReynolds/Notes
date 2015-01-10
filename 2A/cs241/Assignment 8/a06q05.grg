@@ -1,0 +1,20 @@
+#u djreynol tbabaran
+#a06
+
+#q 05
+#check TP
+
+% R(|ran(R~ U C)|) == Ran(R)
+y in R(|ran(R~ U C)|) <==> y in Ran(R)
+
+1) y in R(|ran(R~ U C)|)
+2) y in R(|ran(R~) U ran(C)|) by set % range
+3) y in R(|ran(R~)|) U R(|ran(C)|) by set % relational image properties
+4) y in R(|dom(R)|) U R(|ran(C)|) by set % inverse properties
+5) y in ran(R) U R(|ran(C)|) by set % relational image properties
+6) y in ran(R) v y in R(|ran(C)|) by set % union
+7) y in ran(R) v (E x. (x,y) in R & x in ran(C)) by set % relational image 
+8) (E x. (x,y) in R) v (E x. (x,y) in R & x in ran(C)) by set % range
+9) E x. (x,y) in R v (x,y) in R & x in ran(C) by exists_over_or
+10) E x. (x,y) in R by simp2
+11) y in ran(R) by set % range

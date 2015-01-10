@@ -1,0 +1,10 @@
+int wain (int* a, int b) {
+  if (*a < b) {
+    *a = 2;
+  }
+  else {
+    *a = *a + 1;
+  }
+  return *a;
+}
+  

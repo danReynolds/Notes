@@ -1,0 +1,17 @@
+#u djreynol tbabaran
+#a06
+
+#q 03
+
+#check TP
+
+%ran(R~ |> B) == dom(B <| R)
+
+(x,y) in ran(R~ |> B) <==> (x,y) in dom(B <| R)
+
+1) (x,y) in ran(R~ |> B)
+2) E x. (x,y) in R~ |> B by set % range
+3) E x. (x,y) in R~ & y in B by set % range restriction
+4) E x. (y,x) in R & y in B by set % inverse
+5) E x. (y,x) in B <| R by set % domain restriction
+6) y in dom(B <| R) by set % domain

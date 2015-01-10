@@ -1,0 +1,8 @@
+int wain(int a, int b) {
+	while(a < b) {
+		println(a);
+		a = a + 1;
+	}
+	println(b);
+	return 0;
+}

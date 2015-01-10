@@ -1,0 +1,509 @@
+29
+BECOMES
+BOF
+COMMA
+ELSE
+EOF
+EQ
+GE
+GT
+ID
+IF
+INT
+LBRACE
+LE
+LPAREN
+LT
+MINUS
+NE
+NUM
+PCT
+PLUS
+PRINTLN
+RBRACE
+RETURN
+RPAREN
+SEMI
+SLASH
+STAR
+WAIN
+WHILE
+10
+S
+dcl
+dcls
+expr
+factor
+procedure
+statement
+statements
+term
+test
+S
+27
+S BOF procedure EOF
+procedure INT WAIN LPAREN dcl COMMA dcl RPAREN LBRACE dcls statements RETURN expr SEMI RBRACE
+dcls 
+dcls dcls dcl BECOMES NUM SEMI
+dcl INT ID
+statements 
+statements statements statement
+statement ID BECOMES expr SEMI
+statement IF LPAREN test RPAREN LBRACE statements RBRACE ELSE LBRACE statements RBRACE
+statement WHILE LPAREN test RPAREN LBRACE statements RBRACE
+statement PRINTLN LPAREN expr RPAREN SEMI
+test expr EQ expr
+test expr NE expr
+test expr LT expr
+test expr LE expr
+test expr GE expr
+test expr GT expr
+expr term
+expr expr PLUS term
+expr expr MINUS term
+term factor
+term term STAR factor
+term term SLASH factor
+term term PCT factor
+factor ID
+factor NUM
+factor LPAREN expr RPAREN
+82
+394
+58 PLUS shift 1
+65 SEMI reduce 23
+47 WHILE reduce 10
+31 ID shift 2
+58 RPAREN reduce 15
+16 EQ reduce 20
+55 statement shift 3
+34 MINUS shift 4
+3 PRINTLN reduce 6
+71 ID reduce 5
+65 EQ reduce 23
+17 EQ reduce 25
+54 IF reduce 5
+22 RPAREN reduce 22
+22 STAR reduce 22
+16 GT reduce 20
+52 LE reduce 18
+2 GE reduce 24
+6 LT reduce 17
+11 LPAREN shift 5
+60 term shift 6
+62 PRINTLN reduce 5
+8 SEMI shift 7
+64 expr shift 8
+33 RPAREN shift 9
+15 RPAREN reduce 13
+75 COMMA shift 10
+36 EQ reduce 26
+80 STAR reduce 21
+21 INT reduce 3
+2 SLASH reduce 24
+66 ID reduce 2
+40 LPAREN shift 5
+51 SLASH shift 11
+79 BECOMES shift 12
+16 SEMI reduce 20
+51 LE reduce 19
+43 IF shift 13
+22 GT reduce 22
+31 expr shift 14
+6 SEMI reduce 17
+25 expr shift 15
+69 term shift 6
+37 factor shift 16
+76 NUM shift 17
+22 SLASH reduce 22
+27 ID shift 2
+56 RBRACE shift 18
+56 WHILE shift 19
+65 NE reduce 23
+65 GT reduce 23
+46 RBRACE shift 20
+76 factor shift 16
+44 SEMI shift 21
+6 GT reduce 17
+11 factor shift 22
+2 NE reduce 24
+67 RBRACE reduce 5
+16 PCT reduce 20
+66 WHILE reduce 2
+41 ID shift 2
+2 STAR reduce 24
+22 LE reduce 22
+17 NE reduce 25
+80 SEMI reduce 21
+47 RBRACE reduce 10
+80 NE reduce 21
+6 NE reduce 17
+49 factor shift 16
+6 LE reduce 17
+17 RPAREN reduce 25
+5 term shift 6
+54 ID reduce 5
+68 EOF shift 23
+77 LPAREN shift 24
+16 MINUS reduce 20
+34 LT shift 25
+16 RPAREN reduce 20
+74 MINUS shift 4
+78 factor shift 16
+80 EQ reduce 21
+80 RPAREN reduce 21
+59 WHILE shift 19
+16 PLUS reduce 20
+56 PRINTLN shift 26
+51 PCT shift 27
+60 expr shift 28
+40 NUM shift 17
+30 RETURN reduce 8
+62 ID reduce 5
+6 PLUS reduce 17
+2 LE reduce 24
+40 ID shift 2
+62 IF reduce 5
+30 WHILE reduce 8
+52 EQ reduce 18
+71 IF reduce 5
+16 NE reduce 20
+39 IF reduce 9
+65 LT reduce 23
+45 ID shift 29
+65 PCT reduce 23
+31 LPAREN shift 5
+14 MINUS shift 4
+36 GT reduce 26
+52 SEMI reduce 18
+59 RBRACE shift 30
+65 MINUS reduce 23
+43 RETURN shift 31
+21 WHILE reduce 3
+31 factor shift 16
+36 RPAREN reduce 26
+18 ELSE shift 32
+35 RPAREN reduce 11
+6 RPAREN reduce 17
+36 STAR reduce 26
+35 MINUS shift 4
+8 PLUS shift 1
+4 factor shift 16
+76 test shift 33
+76 expr shift 34
+76 ID shift 2
+37 NUM shift 17
+25 ID shift 2
+40 expr shift 35
+30 PRINTLN reduce 8
+7 WHILE reduce 7
+63 RPAREN shift 36
+69 LPAREN shift 5
+25 LPAREN shift 5
+5 ID shift 2
+80 LT reduce 21
+14 PLUS shift 1
+34 NE shift 37
+51 LT reduce 19
+51 NE reduce 19
+70 RPAREN shift 38
+55 RBRACE shift 39
+34 EQ shift 40
+41 LPAREN shift 5
+52 LT reduce 18
+52 STAR shift 41
+25 NUM shift 17
+59 ID shift 42
+3 RETURN reduce 6
+60 ID shift 2
+4 LPAREN shift 5
+76 term shift 6
+67 statements shift 43
+17 GE reduce 25
+2 MINUS reduce 24
+17 GT reduce 25
+30 IF reduce 8
+12 NUM shift 44
+59 PRINTLN shift 26
+10 INT shift 45
+21 IF reduce 3
+7 IF reduce 7
+55 IF shift 13
+60 factor shift 16
+39 RBRACE reduce 9
+64 LPAREN shift 5
+34 PLUS shift 1
+36 PCT reduce 26
+52 GT reduce 18
+22 SEMI reduce 22
+59 IF shift 13
+14 SEMI shift 46
+67 RETURN reduce 5
+80 GE reduce 21
+43 statement shift 3
+47 PRINTLN reduce 10
+61 SEMI shift 47
+66 INT reduce 2
+22 LT reduce 22
+7 ID reduce 7
+62 WHILE reduce 5
+6 EQ reduce 17
+65 STAR reduce 23
+71 WHILE reduce 5
+2 SEMI reduce 24
+69 expr shift 48
+24 INT shift 45
+36 NE reduce 26
+71 RETURN reduce 5
+6 GE reduce 17
+34 GE shift 49
+22 GE reduce 22
+55 ID shift 42
+66 IF reduce 2
+6 STAR shift 41
+31 term shift 6
+71 PRINTLN reduce 5
+73 expr shift 50
+54 WHILE reduce 5
+37 term shift 6
+3 RBRACE reduce 6
+4 term shift 51
+73 factor shift 16
+36 SEMI reduce 26
+65 GE reduce 23
+1 term shift 52
+30 ID reduce 8
+7 RETURN reduce 7
+52 PCT shift 27
+4 NUM shift 17
+51 RPAREN reduce 19
+2 PLUS reduce 24
+16 SLASH reduce 20
+47 ID reduce 10
+15 PLUS shift 1
+78 test shift 53
+51 MINUS reduce 19
+29 COMMA reduce 4
+69 factor shift 16
+49 LPAREN shift 5
+2 PCT reduce 24
+51 STAR shift 41
+52 MINUS reduce 18
+29 RPAREN reduce 4
+17 SLASH reduce 25
+50 MINUS shift 4
+3 WHILE reduce 6
+67 ID reduce 5
+8 MINUS shift 4
+47 IF reduce 10
+69 NUM shift 17
+17 STAR reduce 25
+29 BECOMES reduce 4
+78 NUM shift 17
+80 PLUS reduce 21
+72 LBRACE shift 54
+67 IF reduce 5
+4 ID shift 2
+71 statements shift 55
+28 MINUS shift 4
+30 RBRACE reduce 8
+28 PLUS shift 1
+78 ID shift 2
+31 NUM shift 17
+22 PCT reduce 22
+50 PLUS shift 1
+41 NUM shift 17
+5 LPAREN shift 5
+56 ID shift 42
+1 factor shift 16
+64 ID shift 2
+73 NUM shift 17
+54 statements shift 56
+43 WHILE shift 19
+64 factor shift 16
+0 BOF shift 57
+52 SLASH shift 11
+49 expr shift 58
+67 WHILE reduce 5
+37 LPAREN shift 5
+69 ID shift 2
+5 factor shift 16
+65 RPAREN reduce 23
+62 RBRACE reduce 5
+60 LPAREN shift 5
+62 statements shift 59
+78 term shift 6
+17 PLUS reduce 25
+65 LE reduce 23
+34 GT shift 60
+49 ID shift 2
+50 RPAREN shift 61
+16 STAR reduce 20
+15 MINUS shift 4
+21 ID reduce 3
+16 GE reduce 20
+49 term shift 6
+54 RBRACE reduce 5
+62 RETURN reduce 5
+32 LBRACE shift 62
+80 GT reduce 21
+5 expr shift 63
+55 WHILE shift 19
+35 PLUS shift 1
+67 PRINTLN reduce 5
+39 WHILE reduce 9
+55 PRINTLN shift 26
+56 IF shift 13
+27 NUM shift 17
+59 statement shift 3
+54 RETURN reduce 5
+42 BECOMES shift 64
+71 RBRACE reduce 5
+7 RBRACE reduce 7
+16 LE reduce 20
+54 PRINTLN reduce 5
+5 NUM shift 17
+80 PCT reduce 21
+6 PCT shift 27
+27 factor shift 65
+38 LBRACE shift 66
+52 GE reduce 18
+73 term shift 6
+80 LE reduce 21
+22 PLUS reduce 22
+43 ID shift 42
+48 RPAREN reduce 14
+51 EQ reduce 19
+17 SEMI reduce 25
+51 GE reduce 19
+66 dcls shift 67
+2 RPAREN reduce 24
+64 term shift 6
+73 LPAREN shift 5
+21 PRINTLN reduce 3
+49 NUM shift 17
+58 MINUS shift 4
+17 MINUS reduce 25
+11 ID shift 2
+39 RETURN reduce 9
+78 expr shift 34
+57 procedure shift 68
+34 LE shift 69
+63 PLUS shift 1
+16 LT reduce 20
+10 dcl shift 70
+9 LBRACE shift 71
+22 MINUS reduce 22
+78 LPAREN shift 5
+36 LE reduce 26
+6 SLASH shift 11
+53 RPAREN shift 72
+66 PRINTLN reduce 2
+37 ID shift 2
+67 INT shift 45
+65 SLASH reduce 23
+52 PLUS reduce 18
+36 LT reduce 26
+51 SEMI reduce 19
+26 LPAREN shift 73
+40 factor shift 16
+37 expr shift 74
+40 term shift 6
+24 dcl shift 75
+39 ID reduce 9
+17 PCT reduce 25
+19 LPAREN shift 76
+80 SLASH reduce 21
+81 WAIN shift 77
+13 LPAREN shift 78
+67 dcl shift 79
+20 EOF reduce 1
+73 ID shift 2
+1 NUM shift 17
+74 PLUS shift 1
+17 LT reduce 25
+39 PRINTLN reduce 9
+25 factor shift 16
+63 MINUS shift 4
+80 MINUS reduce 21
+48 MINUS shift 4
+27 LPAREN shift 5
+48 PLUS shift 1
+2 LT reduce 24
+28 RPAREN reduce 16
+52 NE reduce 18
+1 LPAREN shift 5
+36 SLASH reduce 26
+7 PRINTLN reduce 7
+36 GE reduce 26
+2 EQ reduce 24
+6 MINUS reduce 17
+51 GT reduce 19
+74 RPAREN reduce 12
+60 NUM shift 17
+66 RETURN reduce 2
+36 PLUS reduce 26
+3 ID reduce 6
+41 factor shift 80
+22 EQ reduce 22
+25 term shift 6
+21 RETURN reduce 3
+52 RPAREN reduce 18
+47 RETURN reduce 10
+2 GT reduce 24
+65 PLUS reduce 23
+56 statement shift 3
+76 LPAREN shift 5
+51 PLUS reduce 19
+22 NE reduce 22
+3 IF reduce 6
+57 INT shift 81
+43 PRINTLN shift 26
+11 NUM shift 17
+64 NUM shift 17
+36 MINUS reduce 26
+17 LE reduce 25
+1 ID shift 2
+BOF
+INT
+WAIN
+LPAREN
+INT
+ID
+COMMA
+INT
+ID
+RPAREN
+LBRACE
+INT
+ID
+BECOMES
+NUM
+SEMI
+WHILE
+LPAREN
+ID
+NE
+NUM
+RPAREN
+LBRACE
+ID
+BECOMES
+ID
+SEMI
+ID
+BECOMES
+ID
+PCT
+ID
+SEMI
+ID
+BECOMES
+ID
+SEMI
+RBRACE
+RETURN
+ID
+SEMI
+RBRACE
+EOF

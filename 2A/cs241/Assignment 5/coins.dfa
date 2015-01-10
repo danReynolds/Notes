@@ -1,0 +1,141 @@
+4
+nickel
+dime
+quarter
+loonie
+27
+nickel1
+nickel2
+nickel3
+nickel4
+nickel5
+nickel6
+nickel7
+nickel8
+nickel9
+nickel10
+nickel11
+nickel12
+nickel13
+nickel14
+nickel15
+nickel16
+nickel17
+nickel18
+nickel19
+nickel20
+nickel21
+nickel22
+nickel23
+nickel24
+nickel25
+nickeloverflow
+start
+start
+1
+nickel25
+104
+start nickel nickel1
+start dime nickel2
+start quarter nickel5
+start loonie nickel20
+nickel1 nickel nickel2
+nickel1 dime nickel3
+nickel1 quarter nickel6
+nickel1 loonie nickel21
+nickel2 nickel nickel3
+nickel2 dime nickel4
+nickel2 quarter nickel7
+nickel2 loonie nickel22
+nickel3 nickel nickel4
+nickel3 dime nickel5
+nickel3 quarter nickel8
+nickel3 loonie nickel23
+nickel4 nickel nickel5
+nickel4 dime nickel6
+nickel4 quarter nickel9
+nickel4 loonie nickel24
+nickel5 nickel nickel6
+nickel5 dime nickel7
+nickel5 quarter nickel10
+nickel5 loonie nickel25
+nickel6 nickel nickel7
+nickel6 dime nickel8
+nickel6 quarter nickel11
+nickel6 loonie nickeloverflow
+nickel7 nickel nickel8
+nickel7 dime nickel9
+nickel7 quarter nickel12
+nickel7 loonie nickeloverflow
+nickel8 nickel nickel9
+nickel8 dime nickel10
+nickel8 quarter nickel13
+nickel8 loonie nickeloverflow
+nickel9 nickel nickel10
+nickel9 dime nickel11
+nickel9 quarter nickel14
+nickel9 loonie nickeloverflow
+nickel10 nickel nickel11
+nickel10 dime nickel12
+nickel10 quarter nickel15
+nickel10 loonie nickeloverflow
+nickel11 nickel nickel12
+nickel11 dime nickel13
+nickel11 quarter nickel16
+nickel11 loonie nickeloverflow
+nickel12 nickel nickel13
+nickel12 dime nickel14
+nickel12 quarter nickel17
+nickel12 loonie nickeloverflow
+nickel13 nickel nickel14
+nickel13 dime nickel15
+nickel13 quarter nickel18
+nickel13 loonie nickeloverflow
+nickel14 nickel nickel15
+nickel14 dime nickel16
+nickel14 quarter nickel19
+nickel14 loonie nickeloverflow
+nickel15 nickel nickel16
+nickel15 dime nickel17
+nickel15 quarter nickel20
+nickel15 loonie nickeloverflow
+nickel16 nickel nickel17
+nickel16 dime nickel18
+nickel16 quarter nickel21
+nickel16 loonie nickeloverflow
+nickel17 nickel nickel18
+nickel17 dime nickel19
+nickel17 quarter nickel22
+nickel17 loonie nickeloverflow
+nickel18 nickel nickel19
+nickel18 dime nickel20
+nickel18 quarter nickel23
+nickel18 loonie nickeloverflow
+nickel19 nickel nickel20
+nickel19 dime nickel21
+nickel19 quarter nickel24
+nickel19 loonie nickeloverflow
+nickel20 nickel nickel21
+nickel20 dime nickel22
+nickel20 quarter nickel25
+nickel20 loonie nickeloverflow
+nickel21 nickel nickel22
+nickel21 dime nickel23
+nickel21 quarter nickeloverflow
+nickel21 loonie nickeloverflow
+nickel22 nickel nickel23
+nickel22 dime nickel24
+nickel22 quarter nickeloverflow
+nickel22 loonie nickeloverflow
+nickel23 nickel nickel24
+nickel23 dime nickel25
+nickel23 quarter nickeloverflow
+nickel23 loonie nickeloverflow
+nickel24 nickel nickel25
+nickel24 dime nickeloverflow
+nickel24 quarter nickeloverflow
+nickel24 loonie nickeloverflow
+nickel25 nickel nickeloverflow
+nickel25 dime nickeloverflow
+nickel25 quarter nickeloverflow
+nickel25 loonie nickeloverflow

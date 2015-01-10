@@ -1,0 +1,18 @@
+#u djreynol tbabaran
+#a06
+
+#q 04
+
+#check TP
+
+%(B <| R) ; (S |> C) == (B <| (R ; S)) |> C
+(x,y) in (B <| R) ; (S |> C) <==> (x,y) in (B <| (R ; S)) |> C
+
+1) (x,y) in (B <| R) ; (S |> C)
+2) E z. (x,z) in (B <| R) & (z,y) in S |> C by set % relational composition
+3) E z. (x,z) in R & x in B & (z,y) in S |> C by set % domain restriction
+4) E z. (x,z) in R & x in B & (z,y) in S & y in C by set % range restriction
+5) (x,y) in R ; S & x in B & y in C by set % relational composition
+6) (x,y) in (B <| (R ; S)) & y in C by set % domain restriction
+7) (x,y) in (B <| (R ; S)) |> C by set % range restriction
+

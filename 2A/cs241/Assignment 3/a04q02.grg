@@ -1,0 +1,106 @@
+#u tbabaran djreynol
+
+#a 04
+
+#q 02
+
+
+a)
+
+A x:Person . E c:Color . wears(x)==c
+A x:Person . A c1,c2:Color . wears(x)==c1 & wears(x)==c2 => c1 == c2
+A x:Person . E i:Item . brings(x)==i
+A x:Person . A i1,i2:Item . brings(x)==i1 & brings(x)==i2 => i1 == i2
+A x:Person . wears(x)==o v wears(x)==g v wears(x)==r
+A x:Person . brings(x)==w v brings(x)==f v brings(x)==cp
+E x:Person . wears(x)==o
+A x,y:Person . wears(x)==o & wears(y)==o => x==y
+A x:Person . wears(x)==g => !(brings(x)==f) & !(brings(x)==w)
+A x1,x2:Person . brings(x1)==cp v together(x1,x2) & brings(x2)==cp => !lost(x1)
+
+%constants:
+%o == orange
+%r == red
+%g == green
+%f == food
+%w == water
+%cp == compass
+
+%predicates:
+%lost(x1) means x1 is lost
+%together(x1,x2) means x1 is together with x2
+
+%functions:
+%wears(x) means the color that x is wearing
+%brings(x) means the item that x is bringing
+
+b)
+
+#check ND
+
+A x:Person . E c:Color . wears(x)==c , A x:Person . A c1,c2:Color . wears(x)==c1 & wears(x)==c2 => c1 == c2 , A x:Person . E i:Item . brings(x)==i , A x:Person . A i1,i2:Item . brings(x)==i1 & brings(x)==i2 => i1 == i2 , A x:Person . wears(x)==o v wears(x)==g v wears(x)==r , A x:Person . brings(x)==w v brings(x)==f v brings(x)==cp , E x:Person . wears(x)==o , A x,y:Person . wears(x)==o & wears(y)==o => x==y , A x:Person . wears(x)==g => !(brings(x)==f) & !(brings(x)==w) , A x1,x2:Person . brings(x1)==cp v together(x1,x2) & brings(x2)==cp => !lost(x1) , wears(jack)==o , brings(yun)==w , wears(mario)==g , !(jack == yun) |= (lost(jack) => !(brings(jack)==cp) & !together(jack,mario)) & brings(mario)==cp & wears(yun)==r
+
+1) A x:Person . E c:Color . wears(x)==c premise
+2) A x:Person . A c1,c2:Color . wears(x)==c1 & wears(x)==c2 => c1 == c2 premise
+3) A x:Person . E i:Item . brings(x)==i premise
+4) A x:Person . A i1,i2:Item . brings(x)==i1 & brings(x)==i2 => i1 == i2 premise
+5) A x:Person . wears(x)==o v wears(x)==g v wears(x)==r premise
+6) A x:Person . brings(x)==w v brings(x)==f v brings(x)==cp premise
+7) E x:Person . wears(x)==o premise
+8) A x,y:Person . wears(x)==o & wears(y)==o => x==y premise
+9) A x:Person . wears(x)==g => !(brings(x)==f) & !(brings(x)==w) premise
+10) A x1,x2:Person . brings(x1)==cp v together(x1,x2) & brings(x2)==cp => !lost(x1) premise
+11) wears(jack)==o premise
+12) brings(yun)==w premise
+13) wears(mario)==g premise
+%hidden premise 1
+98) !(jack == yun) premise
+
+
+14) wears(mario)==g => !(brings(mario)==f) & !(brings(mario)==w) by forall_e on 9
+15) !(brings(mario)==f) & !(brings(mario)==w) by imp_e on 13,14
+16) !(brings(mario)==f) by and_e on 15
+17) !(brings(mario)==w) by and_e on 15
+18) brings(mario)==w v brings(mario)==f v brings(mario)==cp by forall_e on 6
+19) brings(mario)==f v brings(mario)==cp by or_e on 17,18
+20) brings(mario)==cp by or_e on 16,19
+
+21) wears(yun)==g => !(brings(yun)==f) & !(brings(yun)==w) by forall_e on 9
+22) disprove wears(yun)==g {
+  23) !(brings(yun)==f) & !(brings(yun)==w) by imp_e on 21,22
+  24) !(brings(yun)==w) by and_e on 23
+  25) false by not_e on 24,12
+}
+26) !(wears(yun)==g) by raa on 22-25
+27) A y:Person . wears(jack)==o & wears(y)==o => jack==y by forall_e on 8
+28) wears(jack)==o & wears(yun)==o => jack==yun by forall_e on 27
+29) disprove wears(yun)==o {
+  30) wears(jack)==o & wears(yun)==o by and_i on 11,29
+  31) jack==yun by imp_e on 28,30
+  32) false by not_e on 31,98
+}
+33) !(wears(yun)==o) by raa on 29-32
+34) wears(yun)==o v wears(yun)==g v wears(yun)==r by forall_e on 5
+35) wears(yun)==g v wears(yun)==r by or_e on 33,34
+36) wears(yun)==r by or_e on 35,26
+
+37) assume lost(jack) {
+  38) A x2:Person . brings(jack)==cp v together(jack,x2) & brings(x2)==cp => !lost(jack) by forall_e on 10
+  39) brings(jack)==cp v together(jack,mario) & brings(mario)==cp => !lost(jack) by forall_e on 38
+  40) !((brings(jack)==cp) v together(jack,mario) & brings(mario)==cp) by imp_e on 39,37
+  41) disprove brings(jack)==cp {
+    42) brings(jack)==cp v together(jack,mario) & brings(mario)==cp by or_i on 41
+    43) false by not_e on 40,42
+  }
+  44) !(brings(jack)==cp) by raa on 41-43
+  45) disprove together(jack,mario) {
+    99) together(jack,mario) & brings(mario)==cp by and_i on 45,20
+    46) brings(jack)==cp v together(jack,mario) & brings(mario)==cp by or_i on 99
+    47) false by not_e on 40,46
+  }
+  48) !together(jack,mario) by raa on 45-47
+  49) !(brings(jack)==cp) & !together(jack,mario) by and_i on 48,44
+}
+50) lost(jack) => !(brings(jack)==cp) & !together(jack,mario) by imp_i on 37-49
+51) brings(mario)==cp & wears(yun)==r by and_i on 20,36
+52) (lost(jack) => !(brings(jack)==cp) & !together(jack,mario)) & brings(mario)==cp & wears(yun)==r by and_i on 50,51

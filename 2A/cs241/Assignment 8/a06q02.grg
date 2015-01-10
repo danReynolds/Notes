@@ -1,0 +1,18 @@
+#u djreynol tbabaran
+#a06
+
+#q 02
+
+% counter example
+
+|= (R(|G I B|)) == (ran(G <| R) I (R(|B|))
+
+R{(x,a), (y,a)}
+G{x}
+B{y}
+
+(R(|G I B|)) == (ran(G <| R) I (R(|B|))
+<==> ({(x,a), (y,a)}(|{x} I {y}|)) == (ran({x} <| {(x,a), (y,a)}) I ({(x,a), (y,a)}(|{y}|))
+<==> ({(x,a), (y,a)}(|empty|)) == ran({(x,a)}) I {a}
+<==> empty == {a}
+<==> false

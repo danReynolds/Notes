@@ -1,0 +1,47 @@
+#u tbabaran djreynol
+
+#a 04
+
+#q 01
+
+#check ST
+
+A x . E  y . !P(f(y),g(x)), A a,b . !Q(b,a) v P(a,g(b)) |= A c . E z . !Q(c,z)
+1) A x . E y . !P(f(y),g(x))
+2) A a,b . !Q(b,a) v P(a,g(b))
+3) !(A c . E z . !Q(c,z))
+by not_forall_nb on 3 {
+  5) E c . !(E z . !Q(c,z))
+  by exists_nb on 5 {
+    6) !(E z . !Q(m,z))
+    by forall_nb on 1 {
+      7) E y . !P(f(y),g(m))
+      by exists_nb on 7 {
+        4) !P(f(tu),g(m))
+        by forall_nb on 2 {
+          8) A b . !Q(b,f(tu)) v P(f(tu),g(b))
+          by forall_nb on 8 {
+            9) !Q(m,f(tu)) v P(f(tu),g(m))        
+            by not_exists_nb on 6 {
+              10) A z . !!Q(m,z)
+              by forall_nb on 10 {
+                11) !!Q(m,f(tu))
+                by not_not_nb on 11 {
+                  12) Q(m,f(tu))
+                  by or_br on 9 {
+                    13) !Q(m,f(tu))
+                    closed on 11,13
+                  }
+                  {
+                    14) P(f(tu),g(m))
+                    closed on 4,14
+                  }
+                }
+              }
+            }
+          }  
+        } 
+      }
+    }
+  }
+}

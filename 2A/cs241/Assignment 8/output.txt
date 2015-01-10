@@ -1,0 +1,38 @@
+dcl INT ID
+dcl INT ID
+dcls 
+dcl INT ID
+dcls dcls dcl BECOMES NUM SEMI
+statements 
+factor ID
+term factor
+expr term
+factor NUM
+term factor
+expr term
+test expr NE expr
+statements 
+factor ID
+term factor
+expr term
+statement ID BECOMES expr SEMI
+statements statements statement
+factor ID
+term factor
+factor ID
+term term PCT factor
+expr term
+statement ID BECOMES expr SEMI
+statements statements statement
+factor ID
+term factor
+expr term
+statement ID BECOMES expr SEMI
+statements statements statement
+statement WHILE LPAREN test RPAREN LBRACE statements RBRACE
+statements statements statement
+factor ID
+term factor
+expr term
+procedure INT WAIN LPAREN dcl COMMA dcl RPAREN LBRACE dcls statements RETURN expr SEMI RBRACE
+S BOF procedure EOF

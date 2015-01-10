@@ -1,0 +1,36 @@
+int wain(int a,int b){
+   int* x = 0;   // *x will hold the lower value
+   int y = 0;   // y will hold the higher value
+   int c = 0;   // c will be the accumulator
+   int divisor = 0;
+   int done = 0;
+   if (a < b) {   // test if a less than b
+      *x = a;      // assign *x the lesser
+      y = b;      // assign y the greater
+   } else {       // I guess a isn't less than b
+      *x = b;      // assign *x the lesser
+      y = c;      // assign y the greater
+   }
+   if (*x != 1) {
+      *x = *x + 1;
+   }else{}
+   if (*x == 2) {
+      if (y >= 2) {
+         c = 1;
+      }else{}
+      *x = *x + 1;
+   }else{}
+   if (*x%2 == 0) {
+      *x = *x + 1;
+   }else{}
+   while (*x <= y) {  // loop until *x > y
+      divisor = 3;
+      done = 0;
+      while (done == 0) {
+         divisor = divisor + 2;
+      }
+      *x = *x + 2;     // increment *x by adding 1
+   }
+   return c;     // return sum between a and b inclusive
+}
+//postcondition:  c is the sum from a to b inclusive

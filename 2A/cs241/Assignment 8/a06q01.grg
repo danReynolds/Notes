@@ -1,0 +1,34 @@
+#u djreynol tbabaran
+#a06
+
+#q 01a
+
+#check PRED
+
+% All people who have siblings are friends with their siblings
+
+Siblings sube Friends
+
+#q 01b
+
+#check PRED
+
+% All of Frank's parents live in countries that are not in North America
+
+ran({Frank} <| Parents) sube dom(live |> (Countries - NorthAmerica)))
+
+#q 01c
+
+#check PRED
+
+% Some people who live in countries in North America have a sibling
+
+!(dom(live |> NorthAmerica <| Siblings) == empty)
+
+#q 01d
+
+#check PRED
+
+% Vlad has at least one cousin
+
+!((ran(Parents) <| Siblings |> ran({Vlad} <| Parents)) == empty)

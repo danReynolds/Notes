@@ -1,0 +1,52 @@
+int wain(int* a, int b) {
+   int c = 4;
+   int* d = NULL;
+
+   c = (b + b);
+   c = b - b;
+   c = b * b;
+   c = b / b;
+   c = b % b;
+   c = b + 4;
+   c = (b + 4 / 2 * 8 -12);
+   c = d - d;
+
+   d = (d - c);
+
+   b = *a;
+   *a = *&(*a);
+   a = (&b);
+
+   while (a < d) {}
+   while (a > d) {}
+   while (a >= d) {}
+   while (a == d) {}
+   while (a <= d) {}
+   while (b < c) {}
+   while (c > b) {}
+   while (b >= c) {}
+   while (c != a) {}
+   while (b <= c) {}
+
+   if (a < d) {} else {}
+   if (a > d) {} else {}
+   if (a >= d) {} else {}
+   if (a == d) {} else {}
+   if (a <= d) {} else {}
+   if (b < c) {} else {}
+   if (c > b) {} else {}
+   if (b >= c) {} else {}
+   if (c == b) {} else {}
+   if (b <= c) {} else {}
+
+   d = new int[3];
+   d = new int[b];
+   delete[] a;
+   delete[] &b;
+   delete[] NULL;
+
+   *a = 4;
+   *a = b;
+
+   return b+4;
+}

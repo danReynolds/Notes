@@ -1,0 +1,108 @@
+29
+BECOMES
+BOF
+COMMA
+ELSE
+EOF
+EQ
+GE
+GT
+ID
+IF
+INT
+LBRACE
+LE
+LPAREN
+LT
+MINUS
+NE
+NUM
+PCT
+PLUS
+PRINTLN
+RBRACE
+RETURN
+RPAREN
+SEMI
+SLASH
+STAR
+WAIN
+WHILE
+10
+S
+dcl
+dcls
+expr
+factor
+procedure
+statement
+statements
+term
+test
+S
+27
+S BOF procedure EOF
+procedure INT WAIN LPAREN dcl COMMA dcl RPAREN LBRACE dcls statements RETURN expr SEMI RBRACE
+dcls 
+dcls dcls dcl BECOMES NUM SEMI
+dcl INT ID
+statements 
+statements statements statement
+statement ID BECOMES expr SEMI
+statement IF LPAREN test RPAREN LBRACE statements RBRACE ELSE LBRACE statements RBRACE
+statement WHILE LPAREN test RPAREN LBRACE statements RBRACE
+statement PRINTLN LPAREN expr RPAREN SEMI
+test expr EQ expr
+test expr NE expr
+test expr LT expr
+test expr LE expr
+test expr GE expr
+test expr GT expr
+expr term
+expr expr PLUS term
+expr expr MINUS term
+term factor
+term term STAR factor
+term term SLASH factor
+term term PCT factor
+factor ID
+factor NUM
+factor LPAREN expr RPAREN
+dcl INT ID
+dcl INT ID
+dcls 
+dcl INT ID
+dcls dcls dcl BECOMES NUM SEMI
+statements 
+factor ID
+term factor
+expr term
+factor NUM
+term factor
+expr term
+test expr NE expr
+statements 
+factor ID
+term factor
+expr term
+statement ID BECOMES expr SEMI
+statements statements statement
+factor ID
+term factor
+factor ID
+term term PCT factor
+expr term
+statement ID BECOMES expr SEMI
+statements statements statement
+factor ID
+term factor
+expr term
+statement ID BECOMES expr SEMI
+statements statements statement
+statement WHILE LPAREN test RPAREN LBRACE statements RBRACE
+statements statements statement
+factor ID
+term factor
+expr term
+procedure INT WAIN LPAREN dcl COMMA dcl RPAREN LBRACE dcls statements RETURN expr SEMI RBRACE
+S BOF procedure EOF

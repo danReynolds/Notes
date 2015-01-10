@@ -1,0 +1,9 @@
+int wain(int* a, int n) {
+  int sum = 0;
+  while (n > 0) {
+    sum = sum + *a;
+    n = n - 1;
+    a = a + 4
+  }
+  return sum;
+}

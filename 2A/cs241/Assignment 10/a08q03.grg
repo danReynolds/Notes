@@ -1,0 +1,88 @@
+#u djreynol tbabaran
+#a08
+#q03
+
+#check PC
+
+%Invariant: i >= -1 & A k. i < k & k < n => b[k] == c[k]
+
+proc main() {
+  @ n >= 0 @
+  @ n == n by @ impl(eq_i)
+  @ n - 1 == n - 1 @ by impl(arith)
+  i := n - 1;
+  @ i == n - 1 @ Asn
+  
+  @ i >= -1 & A k. i < k & k < n => b[k] == c[k] @ by impl(VC1)
+  while (i >= 0) do {
+    @ i >= -1 & A k. i < k & k < n => b[k] == c[k] & i >= 0 @ Inv and G
+    @ i-1 >= -1 & A k. i-1 < k & k < n => (b(+){i, c[i]}) [k] == c[k] @ by impl(VC2)
+
+    b[i] := c[i];
+
+    @ i-1 >= -1 & A k. i-1 < k & k < n => b[k] == c[k] @ Asn
+
+    i := i - 1;
+    
+    @ i >= -1 & A k. i < k & k < n => b[k] == c[k] @ Asn
+  };
+  @ i >= -1 & A k. i < k & k < n => b[k] == c[k] & !(i >= 0) @ partial-while
+
+  @ A k. 0 <= k & k < n => b[k] == c[k] @ by impl(VC3)
+}
+
+
+VC1:
+n >= 0 & i == n - 1 |= i >= -1 & A k. i < k & k < n => b[k] == c[k]
+1) n >= 0 premise
+2) i ==  n - 1 premise
+3) for every kg {
+  4) assume i >= -1 & i < kg & kg < n {
+    5) disprove !(b[kg] == c[kg]) {
+      6) i < kg by and_e on 4
+      7) n - 1 < kg eq_e on 2, 6
+      8) kg < n by and_e on 4
+      9) false by not_e on 7, 8
+    }
+    10) b[kg] == c[kg] by raa on 5-9
+  }
+  11) i >= -1 & i < kg & kg < n => b[kg] == c[kg] by imp_i on 4-10
+}
+12) i >= -1 & A k. i < k & k < n => b[k] == c[k] by forall_i on 3-11
+
+VC2:
+i >= -1 & A k. i < k & k < n => b[k] == c[k] & i >= 0 |= i-1 >= -1 & A k. i-1 < k & k < n => (b(+){i, c[i]}) [k] == c[k]
+1) i >= -1 premise
+2) A k. i < k & k < n => b[k] == c[k] premise
+3) i >= 0 premise
+4) for every kg {
+  5) assume i-1 < kg & kg < n {
+    6) i < kg & kg < n v i == kg  by arith
+    7) case i < kg & kg < n {
+      8) !(i == kg) by arith
+      9) i < kg & kg < n => b[kg] == c[kg] by forall_e on 2
+      10) b[kg] == c[kg] by imp_e on 7, 9
+      11) (b(+){i, c[i]}) [kg] ==  b[kg] by set % rel override, 8
+      12) (b(+){i, c[i]}) [kg] ==  c[kg] by eq_e on 10, 11
+    }
+    13) case i == kg {
+      14) (b(+){i, c[i]}) [kg] ==  c[i] by set % rel override, 12
+      99) (b(+){i, c[i]}) [kg] ==  c[kg] by eq_e on 13, 14
+    }
+    15) (b(+){i, c[i]}) [kg] ==  c[kg] by cases on 6, 7-12, 13-99
+  }
+  16) i-1 < kg & kg < n => (b(+){i, c[i]}) [kg] ==  c[kg] by imp_i on 5-15
+}
+17) A k. i-1 < k & k < n => (b(+){i, c[i]}) [k] == c[k] by forall_i on 4-16
+18) i-1 >= -1 & A k. i-1 < k & k < n => (b(+){i, c[i]}) [k] == c[k] by and_i on 3, 17
+
+
+VC3:
+i >= -1 & A k. i < k & k < n => b[k] == c[k] & !(i >= 0) |= A k. 0 <= k & k < n => b[k] == c[k]
+1) i >= -1 premise
+2) A k. i < k & k < n => b[k] == c[k] premise
+3) !(i >= 0) premise
+10) i < 0 by arith 
+11) i == -1 by arith
+4) A k. -1 < k & k < n => b[k] == c[k] by eq_e on 2,11
+5) A k. 0 <= k & k < n => b[k] == c[k] by arith

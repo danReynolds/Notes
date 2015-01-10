@@ -1,0 +1,123 @@
+#u tbabaran djreynol
+
+#a07
+
+#q01
+
+#check Z
+
+% 1. Types
+
+[Products,Stores,Manufacturers]
+
+% errors:= ItemsAlreadySold, NotByMan
+
+%2 Constants
+
+schema Globals begin
+  MaxProducts: Stores --> N
+  MinProducts: Stores --> N
+pred
+  @ A s:Stores. MinProducts(s) == 3
+end
+
+%3 System State
+
+schema FreshData begin
+  prodman: Products -|->> Manufacturers
+  storeprod: Stores --> pow(Products)
+pred
+  @ gen_U(ran(storeprod)) sube gen_U(dom(prodman)) 
+end
+
+%4 Initial State
+
+schema InitialFreshData begin
+  FreshData
+pred
+  @ A s:Stores . card(storeprod(s)) >= 1000 
+end
+
+%5 Operations
+
+schema Recall begin
+  Delta FreshData
+  manf?: Manufacturers
+pred
+  @ A s:Stores . storeprod'(s) == storeprod(s) - dom(prodman |> {manf?})
+  @ prodman' == prodman
+end
+
+schema AddProducts begin
+  Delta FreshData
+  manf?: Manufacturers
+  s?: Stores
+  items?: pow(Products)
+pred
+  @ card(items?) >= minProducts(s?) v !(storeprod(s?) I dom(prodman |> {manf?}) == empty)
+  @ storeprod(s?) I items? == empty
+  @ items? sube dom(prodman |> {manf?})
+  @ maxProducts(s?) >= card(storeprod(s?)) + card(items?)
+
+  @ prodman' == prodman
+  @ storeprod'(s?) == storeprod(s?) U items?
+end
+
+schema Replace begin
+  Delta FreshData
+  manf?: Manufacturers
+  old?: Products
+  new?: Products
+pred
+  @ A s:Stores . {old?} sube storeprod(s?) & storeprod'(s?) == storeprod(s?) - {old?} + {new?} v  !({old?} sube storeprod(s?)) & storeprod'(s?) == storeprod(s?) 
+  @ prodman' == prodman - {(old?,manf?)} + {(new?,manf?)} 
+end
+
+schema Remove begin
+  Delta FreshData
+  item?: Products
+  s?: Stores
+  manufacturersProducts: pow(Products)
+pred
+  @ manufacturersProducts == dom(prodman |> prodman(item?))
+  @ prodman' == prodman 
+  @ !({item?} sube storeprod(s?)) & (storeprod'(s?) == storeprod(s?)) v ({item?} sube storeprod(s?)) & (storeprod'(s) == storeprod(s) - {item?}) & (card(storeprod'(s?) I manufacturersProducts) >= minProducts(s?)) v (card(storeprod(s?) - {item?} I manufacturersProducts) < minProducts(s?)) & (storeprod'(s?) == storeprod(s?) -manufacturersProducts)
+
+   % disjunction 1: item was not sold here
+   % disjunction 2: item was sold and removing it did not push that manufacturer below the min
+   % disjunction 3: item was sold and removing it did push that manufacturer below the min, so all products were removed
+end
+
+schema DistinctReport begin
+  Xi FreshData
+  distProd!: N
+  distMan!: N
+pred
+  @ distProd! == card(gen_U(ran(storeprod))) 
+  @ distMan! == card(ran(gen_U(ran(storeprod)) <| prodman)) 
+end
+
+schema ItemsAlreadySold begin
+  Xi FreshData
+  manf?: Manufacturers
+  s?: Stores
+  items?: pow(Products)
+  error!: Errors
+pred
+  @ !(items? I storeprod(s?) == empty) 
+  @ error! == ItemsAlreadySold 
+end
+
+schema NotByMan begin
+  Xi FreshData
+  manf?: Manufacturers
+  s?: Stores
+  items?: pow(Products)
+  error!: Errors
+pred
+  @ !(items? sube dom(prodman |> {manf?})) 
+  @ error! == NotByMan 
+end
+
+
+

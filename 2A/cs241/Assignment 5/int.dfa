@@ -1,0 +1,153 @@
+11
+0
+1
+2
+3
+4
+5
+6
+7
+8
+9
+-
+9
+start
+neg
+tens
+error
+tens2
+tens3
+hundred
+hundred2
+1s
+start
+6
+tens 
+tens2
+tens3
+hundred
+hundred2
+1s
+88
+start - neg
+start 0 1s
+start 1 hundred
+start 2 tens
+start 3 tens
+start 4 tens
+start 5 tens
+start 6 tens
+start 7 tens
+start 8 tens
+start 9 tens
+1s 0 error
+1s 1 error
+1s 2 error
+1s 3 error
+1s 4 error
+1s 5 error
+1s 6 error
+1s 7 error
+1s 8 error
+1s 9 error
+1s - error
+hundred 0 tens
+hundred 1 tens
+hundred 2 tens2
+hundred 3 1s
+hundred 4 1s
+hundred 5 1s
+hundred 6 1s
+hundred 7 1s
+hundred 8 1s
+hundred 9 1s
+hundred - error
+tens - error
+tens 0 1s
+tens 1 1s
+tens 2 1s
+tens 3 1s
+tens 4 1s
+tens 5 1s
+tens 6 1s
+tens 7 1s
+tens 8 1s
+tens 9 1s
+tens2 0 1s
+tens2 1 1s
+tens2 2 1s
+tens2 3 1s
+tens2 4 1s
+tens2 5 1s
+tens2 6 1s
+tens2 7 1s
+tens2 8 error
+tens2 9 error
+tens2 - error
+neg - error
+neg 0 error
+neg 2 tens
+neg 3 tens
+neg 4 tens
+neg 5 tens
+neg 6 tens
+neg 7 tens
+neg 8 tens
+neg 9 tens
+neg 1 hundred2
+hundred2 3 1s
+hundred2 4 1s
+hundred2 5 1s
+hundred2 6 1s
+hundred2 7 1s
+hundred2 8 1s
+hundred2 9 1s
+hundred2 - error
+hundred2 0 tens
+hundred2 1 tens
+hundred2 2 tens3
+tens3 0 1s
+tens3 1 1s
+tens3 2 1s
+tens3 3 1s
+tens3 4 1s
+tens3 5 1s
+tens3 6 1s
+tens3 7 1s
+tens3 8 1s
+tens3 - error
+tens3 9 error
+
+------
+
+start - neg
+
+neg - error
+neg 2-9 tens
+neg 1 hundred2
+
+hundred2 3-9 1s
+hundred2 - error
+hundred2 0-1 tens
+hundred2 2 tens3
+
+tens3 0-8 1s
+tens3 -,9 error
+
+start 0 1s
+zero 0-9,- error
+
+start 2-9 tens
+tens 0-9 1s
+tens - error
+1s -,0-9 error
+
+start 1 hundred
+hundred 0-1 tens
+hundred 2 tens2
+hundred 3-9 1s
+hundred - error
+tens2 0-7 1s
+tens2 8-9,- error
+
+

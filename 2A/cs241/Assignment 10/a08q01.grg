@@ -1,0 +1,57 @@
+#u djreynol tbabaran
+#a08
+#q01
+
+#check PC
+
+proc main() {
+  @ x == x0 & x >= y @
+
+  if (y <= 2) then {
+    @ y <= 2 & x == x0 & x >= y @ if then else
+    @ x + 2 >= x0 + y @ impl(VC 1)
+    x := x + 2;
+    @ x >= x0 + y @ Asn
+  } else { 
+    @ !(y <= 2) & x == x0 & x >= y @ if then else
+    if !(x == 0) then {
+      @ !(y <= 2) & x == x0 & x >= y & !(x == 0) @ if then
+      @ 2 * x >= x0 + y @ impl(VC 2)
+      x := 2 * x;
+      @ x >= x0 + y @ Asn
+    };
+    @ x >= x0 + y @ if-then(VC 3)
+  };
+    @ x >= x0 + y @ if-then-else
+}
+
+VC 1: y <= 2 & x == x0 & x >= y |= x + 2 >= x0 + y
+
+1) y <= 2 premise
+2) x == x0 premise
+3) x >= y premise
+4) x + 2 >= x + 2 by eq_i
+5) x + 2 >= x + y by arith
+6) x + 2 >= x0 + y by eq_e on 2, 5
+
+VC 2: !(y <= 2) & x == x0 & x >= y & !(x == 0) |= 2 * x > x0 + y
+1) !(y <= 2) premise
+2) x == x0 premise
+3) x >= y premise
+4) !(x == 0) premise
+5) 2 * x >= 2 * x by arith
+6) 2 * x >= x + x by arith
+7) 2 * x >= x + y by arith % transitivity of >=
+8) 2 * x >= x0 + y by eq_e on 2,6
+
+
+VC 3: !(y <= 2) & x == x0 & x >= y & !!(x == 0) |= 2 * x > x0 + y
+
+1) !(y <= 2) premise
+2) x == x0 premise
+3) x >= y premise
+4) !!(x == 0) premise
+5) x == 0 by not_not_e on 4
+6) 0 >= y by eq_e on 5,3
+7) 2 * x > x0 + y by arith %not_e on 1,6
+

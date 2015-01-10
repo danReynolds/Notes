@@ -1,0 +1,94 @@
+#u djreynol tbabaran
+#a08
+#q02
+
+#check PC
+
+% Inner loop inv: s - k == x * y & y >= 1
+% Outer loop inv: s == x * y & y >= 1
+
+proc main() {
+  @ y >= 1 & x >= 0 @
+  @ x * y == x * y @ impl(VC3)
+
+  s := x * y
+  
+  @ s == x * y @ Asn
+  @ s == x * y & y >= 1 @ impl(and_i)
+  
+  while (y > 1) do {
+    
+    @ (s == x * y) & (y >= 1) & (y > 1) @ Inv & Guard 
+    @ s == x * (y - 1 + 1) & y - 1 >= 1 @ impl(VC0)
+    
+    y := y - 1;
+
+    @ (s == x * (y + 1)) & (y >= 1) Asn
+    @ (s == x * y + x) & (y >= 1) @ impl(arith)
+    @ (s - x == x * y) & (y >= 1) @ impl(arith)
+
+    k := x;
+
+    @ (s - k == x * y) & (y >= 1) @ Asn
+
+    while !(k == 0) do {
+      
+      @ (s - k == x * y) & (y >= 1) & !(k == 0) @ Inv & Guard
+      @ (s - k == x * y) & (y >= 1) @ impl(and_e)
+      @ (s - 1 + 1 - (k - 1 + 1) == x * y) & (y >= 1) @ impl(arith)
+
+      k := k - 1;
+
+      @ (s - 1 + 1 - (k + 1) == x * y) & (y >= 1) @ Asn
+      
+      s := s - 1;
+
+      @ (s + 1 - (k + 1) == x * y) & (y >= 1) @ Asn
+      @ (s - k == x * y) & (y >= 1) @ impl(arith)
+
+    };
+
+    @ (k == 0 & s - k == x * y) & (y >= 1) @ partial-while
+    @ s == x * y & (y >= 1) @ impl(VC1)
+
+  };
+
+    @ s == x * y & (y >= 1) & !(y > 1) @ partial-while
+    @ s == x @ impl(VC2)
+}
+
+VC0: (s == x * y) & (y >= 1) & (y > 1) |= s == x * (y + 1 - 1) & y - 1 >= 1
+1) y > 1 premise
+2) y >= 1 premise
+3) s == x * y premise
+4) y - 1 >= 1 by arith 
+5) s == x * (y + 1 - 1) by arith
+6) s == x * (y + 1 - 1) & y - 1 >= 1 by and_i on 4,5
+
+VC1: k == 0 & s - k == x * y |= s == x * y
+1) k == 0 premise
+2) s - k == x * y premise
+3) s - 0 == x * y eq_e 1,2
+4) s == x * y arith
+
+VC2: s == x * y & (y >= 1) & !(y > 1) |= s == x
+1) s == x * y premise
+2) !(y > 1) premise
+3) (y >= 1) premise
+4) y > 1 v y == 1 by arith
+5) y == 1 by or_e on 2,4
+6) s == x * 1 by eq_e on 1,5
+7) s == x by arith
+
+VC3: y >= 1 & x >= 0 |= x * y == x * y
+1) y >= 1 premise
+2) x >= 0 premise
+3) x == x by eq_i
+4) x * y == x * y by arith
+
+
+// subtract y enough times that now x * y becomes x, so s == x
+// that will allow the postcondition to be satisfied
+
+//have inner loop run x times each iteration, so as y decreases, subtract x each
+//time, eventually (y-1) times, will have subtracted it enough times to make s equal x

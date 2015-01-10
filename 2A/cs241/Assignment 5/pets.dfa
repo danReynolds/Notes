@@ -1,0 +1,35 @@
+4
+cat
+dog
+iguana
+mouse
+5
+start
+1
+2
+3
+4
+start
+1
+4
+20
+start cat 1
+start dog start
+start iguana start
+start mouse start
+1 dog 2
+1 cat 1
+1 iguana 1
+1 mouse 1
+2 iguana 3
+2 dog 2
+2 cat 2
+2 mouse 2
+3 mouse 4
+3 dog 3
+3 cat 3
+3 iguana 3
+4 mouse 4
+4 dog 4
+4 cat 4
+4 iguana 4

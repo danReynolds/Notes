@@ -1,0 +1,9 @@
+int wain(int* a, int b) {
+   int *d = NULL;
+   *d = 10;
+   *a = 5;
+   if (*d > *a) {
+      println(*d);
+   } else {}
+   return *a;
+}

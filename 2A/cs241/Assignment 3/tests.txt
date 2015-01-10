@@ -1,0 +1,3 @@
+int wain(int a,int b){
+   int x = 0;   // x will hold the lower value
+   nt y = 0;   // y will hold the higher value

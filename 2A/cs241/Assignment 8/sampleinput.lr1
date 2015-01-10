@@ -1,0 +1,15 @@
+INT int
+WAIN wain
+LPAREN (
+INT int
+ID foo
+COMMA ,
+COMMA ,
+INT int
+ID bar
+RPAREN )
+LBRACE {
+RETURN return
+NUM 42
+SEMI ;
+RBRACE }
