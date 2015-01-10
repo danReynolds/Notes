@@ -4,8 +4,8 @@
 class Component {
 public:
   virtual void Draw() = 0;
-  virtual void addComponent(Component*) = 0;
-  virtual void removeComponent() = 0;
+  virtual void addComponent(Component*) = 0; // or define a default implementation for this
+  virtual void removeComponent() = 0; // or define a default implementation for this
 };
 
 class Composite : public Component {

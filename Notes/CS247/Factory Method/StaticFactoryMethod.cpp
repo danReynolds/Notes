@@ -69,8 +69,8 @@ ForcesFactoryInitializer::ForcesFactoryInitializer() {
 ForcesFactoryInitializer ForcesFactoryInitializer::instance_;
 
 Force* AbstractForcesFactory::createForce(std::string forceType) {
-  if (AbstractForcesFactory::forceFactories_.find(forceType) != AbstractForcesFactory::forceFactories_.end())
-    return AbstractForcesFactory::forceFactories_[forceType]->create();
+  if (forceFactories_.find(forceType) != forceFactories_.end())
+    return forceFactories_[forceType]->create();
   else
     return 0;
 }

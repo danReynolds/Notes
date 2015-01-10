@@ -3,7 +3,6 @@
 
 using namespace std;
 
-
 ////////////// Function Templates
 
 template<typename T>

@@ -2,6 +2,12 @@
 #include <functional>
 #include <iostream>
 
+struct customMult {
+  int operator()(int x, int y) {
+    return x + 3*y;
+  }
+} customM;
+
 template <typename iter, typename T, typename proc>
 T foldl(iter first, iter last, T init, proc f) {
   while (first != last) {
@@ -23,6 +29,11 @@ int main() {
 
   total = foldl(it, lister.end(), total, std::plus<int>());
 
+  std::cout << total << std::endl;
+
+  total = foldl(it, lister.end(), total, customM);
+
   std::cout << total;
+
   return 0;
 }
