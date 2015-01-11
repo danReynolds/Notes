@@ -69,7 +69,7 @@ When a thread performs a disk I/O and is put to sleep while the I/O does its thi
 
 We are learning about multi-thread processes because the OS was the **first** concurrent program and many techniques were created for use within the OS.
 
-If two processes are both writing to a file, and both wish to append the data to the file, because an interrupt may occur at any time, the code that updates these shared structures is a **critical section**. It is accessing a **shared** resource, a shared data structure.
+If two processes are both writing to a file, and both wish to append the data to the file, because an interrupt may occur at any time, the code that updates these shared structures is a **critical section**. It is accessing a **shared** resource, a shared data structure. It wouldn't make sense if some of the text from the first process writes and then some of the text from the second process writes to the file. There should be synchronization primitives that prevent anything but atomic blocks of instructions.
 
 Therefore OS designers, from the very beginning of the introduction of the interrupt, had to worry about how to manage synchronization primitives. Every file system structure and virtually every kernel data structure has to be carefully accessed with the proper synchronization primitives.
 

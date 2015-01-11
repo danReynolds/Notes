@@ -1,11 +1,11 @@
 # Introduction to Operating Systems
-*Virtualization* is taking a physical resource like the processor, memory, or disk and transforming it into a more general, powerful, and easy-to-use virtual form of itself. The OS is a *virtual machine.*
+*Virtualization* is taking a physical resource like the processor, memory, or disk and transforming it into a more general, powerful, and easy-to-use virtual form of itself. The OS is a *virtual machine.* You interact with the physical resource through the virtual resource.
 
 The OS provides a *standard library* of system calls that are available to applications. 
 
 Each of the CPU, memory, and disk are **resources** of the system. The OS acts as the resource manager.
 
-The OS makes it seem like the system has a very large number of virtual CPUs.
+The OS makes it seem like the system has a very large number of virtual CPUs. The File system is a virtualized form of physical storage. Processes and threads are a virtual form of program execution. Program address spaces are a virtualized form of primary memory.
 
 If I run multiple programs, one printing A repeatedly, another B and another C:
 
