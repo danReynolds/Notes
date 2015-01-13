@@ -122,7 +122,7 @@ This ensures that any time code is executing in the waiting thread, it has the l
 
 The second thing to notice is that instead of any if statement, the wait command is run in a while loop.
 
-This will be discussed in detail more later, but it is generally the safe thing to do.
+This will be discussed in detail more later, but it is generally the safe thing to do in the case that it is woken up, but `initialized` is still 0.
 
 There are some cases where the waiting thread could be woken up when it shouldn't have been, so it is important to re-check that what we were actually waiting for, in this case the variable `initialized`, has actually been updated.
 

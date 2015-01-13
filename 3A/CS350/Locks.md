@@ -266,9 +266,9 @@ Additionally, a thread can get caught in an endless yield loop while other threa
 ## Using Queues: Sleeping Instead of Spinning
 The scheduler determines which thread runs next, if the scheduler makes a bad choice, so far a thread runs that must either **spin** or **yield**.
 
-Either way, be it hanging, or context switching repeatedly, there is waste in time and CPU and only one type of spinning is far.
+Either way, be it hanging, or context switching repeatedly, there is waste in time and CPU and only one type of spinning is fair.
 
-The real problem with the previous approach is that they leave too much to chance.
+The real problem with the previous approaches is that they leave too much to chance.
 
 To solve this, exert control over who gets to acquire the lock next after the current holder releases it. Requires more OS support and a queue to keep track of who is waiting for the lock.
 
@@ -322,7 +322,7 @@ If the lock is available, the flag is changed and the thread acquires the lock. 
 
 Either way the guard is then lowered so that other threads can try to acquire the lock.
 
-The `unlock` method similarly raises the guard, so that the next deserving thread in the queue does not check the flag too early and is not re-added to the queue while the current thread with the lock is in the process or releasing the lock.
+The `unlock` method similarly raises the guard, because if it is interrupted when it is about to release the flag, another thread could be parked, then returning this thread, which finishes and the other one is never woken.
 
 This approach **does not avoid lock-spin entirely**, but the benefit is that the lock-spin isn't around the critical region, it is around the checking of the flag. That way, it only spins for 3 or 4 lines of code execution, which is a much smaller delay than if it was spinning for the duration of the transaction.
 
