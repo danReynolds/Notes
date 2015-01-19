@@ -51,7 +51,7 @@ Here is an example of a parent waiting for a child:
 
 Here the parent thread must wait for done, the **state variable**, to be `1` before it makes sense to continue. It goes to sleep, waiting on the wait channel / condition variable queue until woken.
 
-The `wait()` command is responsible for releasing the lock held by the thread and putting it to sleep atomically. When the thread wakes up, it is also the responsibility of the `wait` command to re-**acquire the lock** before resuming.
+The `wait()` command is responsible for releasing the lock held by the thread and **putting it to sleep atomically**. When the thread wakes up, it is also the responsibility of the `wait` command to re-**acquire the lock** before resuming.
 
 After the child thread has signalled the parent thread that it can be woken, the parent thread is spinning, trying to acquire the lock 
 
