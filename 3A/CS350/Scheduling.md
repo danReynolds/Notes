@@ -21,7 +21,7 @@ Beyond these assumptions, it is also necessary to have a **scheduling metric** t
 
 For now, the only metric is a **turnaround time**. The turnaround time of a job is defined as:
 
-$T_{turnaround} = $T_{completion} - T_{arrival}$
+$T_{turnaround} = T_{completion} - T_{arrival}$
 
 Where our arrival time is currently 0, since we assume all arrive at the same time.
 
