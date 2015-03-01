@@ -81,7 +81,7 @@ Then the OS runs that program, passing in arguments as the `argv` of the process
 
 The parent runs `fork`, and the child runs `execvp`.
 
-It does not create a new process, rather it transforms the currently running child program into a different program (wc). `exec` does not return, so the child essentially no longer exists as a program and has been replaced with the one it called. The parent also never finishes because it is waiting for a child that has been transformed into something else.
+It does not create a new process, rather it transforms the currently running child program into a different program (wc). `exec` does not return, so the child essentially no longer exists as a program and has been replaced with the one it called.
 
 ### Why? Motivating the API
 Why create such an odd interface for creating a new process, or running a different one?
