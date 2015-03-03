@@ -77,7 +77,7 @@ Assuming this is is the first time the program accesses the array, the result wi
 
 The next access to element 1 of the array results is a TLB hit since the second element of the array can fit on the same page.
 
-The next elemnent also succeeds, but `a[3]` fails, since address 116 `0111 0000` is on the next page. `a[4..6] will then hit, however, and the only other miss occurs for `a[7]` since it is also on a different page. `a[8..9]` hit since they are on the same page as `a[7]`.
+The next elemnent also succeeds, but `a[3]` fails, since address 116 `0111 0000` is on the next page. `a[4..6]` will then hit, however, and the only other miss occurs for `a[7]` since it is also on a different page. `a[8..9]` hit since they are on the same page as `a[7]`.
 
 The TLB hits and misses end up being:
 

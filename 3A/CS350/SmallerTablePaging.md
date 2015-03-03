@@ -4,17 +4,17 @@ The second problem that page tables produce is the fact that they take up so muc
 A linear page table can get pretty big:
 
 * 32-bit address space.
-* Each page is 4KB, or $2^12$.
+* Each page is 4KB, or $2^{12}$.
 * Each page table entry is 4 bytes.
 
-That means there are $2^20$ pages, with each PTE at 4 bytes that's $2^20$, or 1MB, times 4, so 4MB to hold the page table.
+That means there are $2^{20}$ pages, with each PTE at 4 bytes that's $2^{20}$, or 1MB, times 4, so 4MB to hold the page table.
 
 Noting that we usually have one page table per process, with 100 processes we are already getting to 400MB!
 
 Since simple array-based page tables are too big, how can page tables be made smaller?
 
 # Simple Solution: Bigger Pages
-To reduce the size of the page table, bigger pages could be used. With 16KB sized pages, only $2^18$ pages would be made, with 4 bytes each that's 1MB per page table. Reducing the size by a factor of 4.
+To reduce the size of the page table, bigger pages could be used. With 16KB sized pages, only $2^{18}$ pages would be made, with 4 bytes each that's 1MB per page table. Reducing the size by a factor of 4.
 
 For every factor of 2 increase in page sizes, the memory required for page table allocation goes down by the same factor.
 
